@@ -1,0 +1,21 @@
+<%=form_with url: session_path, method: :post  do |form|  %>
+
+    <div class="field">
+    <%=form.label :email%>
+    <%=form.text_field :email %>
+
+    </div>
+
+    <div class="field">
+    <%=form.label :pass%>
+    <%=form.text_field :pass %>
+    
+    </div>
+
+   
+
+    <div class="actions">
+        <%= form.submit %>
+      </div>
+
+<%end%>

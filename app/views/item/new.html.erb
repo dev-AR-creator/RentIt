@@ -1,0 +1,49 @@
+<%=form_with url: newitem_path, method: :post  do |form|  %>
+
+    <div class="field">
+    <%=form.label :name%>
+    <%=form.text_field :name %>
+
+    </div>
+
+    <div class="field">
+    <%=form.label :location%>
+    <%=form.text_field :location%>
+    
+    </div>
+
+    <div class="field">
+    <%=form.label :price%>
+    <%=form.number_field :price%>
+    
+    </div>
+    <div class="field">
+    <%=form.label :condition%>
+    <%=form.number_field :condition %>
+    
+    </div>
+    <div class="field">
+    <%=form.label :duration%>
+    <%=form.month_field :duration%>
+    
+    </div>
+
+    <div class="field">
+    <%=form.label :details%>
+    <%=form.text_area :details%>
+    
+    </div>
+
+
+    
+
+    <div class="actions">
+        <%= form.submit %>
+      </div>
+
+<%end%>
+
+
+
+
+

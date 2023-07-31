@@ -1,0 +1,11 @@
+
+<h1> cards</h1>
+
+<% @cards.each do |cards| %>
+
+
+  <div> <%= cards.name %> </div>
+  <%= link_to "view" ,itempage_path(id=cards.id) %>
+ 
+
+  <%end%>

@@ -1,0 +1,9 @@
+
+
+    <div><%= @stuff.name %></div>
+    <%= button_to "order", request_path(id=@stuff.id), :method => "patch" %>
+    
+    <%= link_to "back" , dash_path%>
+
+
+

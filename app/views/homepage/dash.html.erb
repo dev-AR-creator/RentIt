@@ -1,0 +1,7 @@
+<h1></h1>
+
+<% @rent.each do |rent|  %>
+
+<div><%= rent.name %></div>
+<%= link_to "view" , ite_path(id=rent.id)%>
+<%end%>
