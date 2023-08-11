@@ -49,14 +49,14 @@
 
 
 
-    <div class="flex flex-row justify-between gap-2 p-4  w-screen">
+    <div class="flex flex-row  justify-between gap-2 p-4  w-screen">
 
 
     
     <div
-  class="flex flex-col basis-1/2 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row">
+  class="flex flex-col  basis-1/2 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:flex-row">
   <div
-    class="h-96 w-full rounded-t-lg object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
+    class="h-96 w-full rounded-xl object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
      ><% if @user.profile.profilepic.attached? %>
        <%= image_tag @user.profile.profilepic %>
        <%else %>
@@ -64,26 +64,26 @@
        <% end %> </div>
   <div class="flex flex-col justify-start p-6">
     <h5
-      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-      <%= @user.name%>
+      class="mb-2 text-xl font-medium text-neutral-800 ">
+      <%= @user.profile.name%>
     </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    <p class="mb-4 text-base text-neutral-600 ">
       <%= @user.profile.about%>
     </p>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    <p class="mb-4 text-base text-neutral-600 ">
       <%= @user.profile.phone%>
     </p>
-    <p class="text-xs text-neutral-500 dark:text-neutral-300">
+    <p class="text-xs text-neutral-500 ">
       <%= @user.profile.Address%>
     </p>
   </div>
 </div>
 
-<div class="flex flex-row justify-evenly text-xl  content-end  pt-20 gap-5 mr-8"> 
-<div class=" rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-26 px-6 ">
+<div class="flex flex-row justify-evenly  text-xl  content-end  pt-20 gap-5 mr-8"> 
+<div class=" rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-1/4 px-6  self-end ">
     <%= button_to "order", request_path(id=@stuff.id), :method => "patch" %>
     </div>
-    <div class="rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-26 px-6">
+    <div class="rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-1/4 px-6 self-end">
     <%= button_to "back" , dash_path , :method => "get" %>
 </div>
 </div>

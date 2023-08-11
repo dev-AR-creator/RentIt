@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-validates :email,:pass,:name, presence:true
-validates :email,uniqueness: true
-validates :pass,length: {minimum:8, maximum:12}
+
 
     has_one :profile
     has_many :items

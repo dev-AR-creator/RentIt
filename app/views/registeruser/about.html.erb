@@ -4,22 +4,30 @@
 
 
 
-<div class="border-2 flex flex-row justify-center p-4 w-screen h-screen bg-[url(https://wallpapers.com/images/hd/minimalist-blue-e0q5nh2rivmv9eio.jpg)] ">
+<div class=" flex flex-row justify-center p-4 w-screen h-screen bg-[url(https://images.squarespace-cdn.com/content/v1/53a2b3a1e4b0a5020bebe676/1604569424778-7TGRADY8SXVPNG8MVAGW/IMG_20141114_164731.jpg)] ">
 
 
-<div class="border-2 shadow-lg rounded-lg p-8 m-4 bg-white basis-1/2 ">
+<div class="shadow-lg rounded-lg p-8 m-4 bg-white basis-1/2 ">
 <p class="text-4xl font-mono font-extrabold text-black "> Enter Your details below</p>
 
 <%=form_with url: profile_path, method: :post  do |form|  %>
 <div class="flex flex-col justify-between gap-4 ">
     <div class="field">
-    <label for="profile_Address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Address</label>
-    <input type="text" name="profile[Address]" id="profile_Address" class="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Johndoe@gmail.com" required>
+    <label for="profile_Address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Address where you live</label>
+    <input type="text" name="profile[Address]" id="profile_Address" class="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  placeholder="Johndoe@gmail.com" required>
 
     </div>
+
+  <div class="field">
+    <label for="profile_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Enter your full name</label>
+    <input type="text" name="profile[name]" id="profile_name" class="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  placeholder="Johndoe@gmail.com" required>
+
+    </div>
+
+
     <div class="field">
     <label for="profile_about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-    <textarea id="profile_about" name="profile[about]" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+    <textarea id="profile_about" name="profile[about]" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your thoughts here..."></textarea>
     </div>
 
     <div>
@@ -40,7 +48,7 @@
 
 <div>
         <label for="profile_phone" class="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
-        <input type="tel" id="profile_phone" name="profile[phone]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+        <input type="number" id="profile_phone" name="profile[phone]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
     </div>
 
  <div><label for="profile_dateofbith" class="block mb-2 text-sm font-medium text-gray-900">Enter Date of birth</label>

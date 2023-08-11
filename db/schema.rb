@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_02_105902) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_154619) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_105902) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "name"
     t.decimal "price"
     t.string "location"
@@ -56,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_105902) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "location"
     t.text "about"
     t.integer "items"
@@ -66,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_105902) do
     t.string "Address"
     t.date "dateofbirth"
     t.integer "phone"
+    t.string "name"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

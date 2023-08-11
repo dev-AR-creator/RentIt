@@ -41,7 +41,7 @@ class ItemController < ApplicationController
         pit=@current_user.items.create(items_params)
         pit.approval=false
         pit.sold=false
-        pit.buyer=1
+        pit.buyer=0
         pit.save
         redirect_to(show_path) 
     end
