@@ -1,4 +1,87 @@
-<h1>Hellow world</h1>
 
-<% link_to "back", show_path %>
+
+
+
+
+
+<div
+  class="block rounded-lg bg-white p-6 shadow-2xl w-fit border-2 m-2  ">
+  <h5
+    class="mb-2 text-xl font-medium leading-tight text-neutral-800">
+    Status
+  </h5>
+  <p class="mb-4 text-base text-neutral-600">
+    <%if @item.sold==true %>
+<div class="border-2 rounded-md bg-blue-300 p-2 mx-4 w-48">Item has beed rented</div>
+<%elsif @item.approval==true%>
+<p class="p-1 ">Waiting for approval click to approve renting</p>
+  <div class="border-2 bg-red-500 hover:bg-red-700 rounded-md shadow-sm hover:shadow-xl w-48 p-2 mx-2">
+    <%= button_to "approve", sold_path(id=@item.id), :method => "patch" %>
+  </div>
+
+<%else%>
+<div >Item on sale</div>
+<%end%>
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="bg-white">
+  <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%=@item.name %></h2>
+      <p class="mt-4 text-gray-500"><%= @item.details %></p>
+
+      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Location</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @item.location%></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Price</dt>
+          <dd class="mt-2 text-sm text-gray-500">$ <%= @item.price %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Condition</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @item.condition %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Rental duration</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @item.duration %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Phone</dt>
+          <dd class="mt-2 text-sm text-gray-500"></dd>
+        </div>
+        
+      </dl>
+    </div>
+    <div class="">
+        <% if @item.itemphoto.attached? %>
+         <%= image_tag @item.itemphoto %>
+        <% end %>
+     
+  </div>
+</div>
+
+
+
+
+
+<div class=" flex flex-row justify-end gap-4 w-screen h-16 p-2 mr-10">
+<div class="border-2 bg-blue-400 hover:bg-blue-600 p-2 mx-2 rounded-lg ">
+<%= button_to "back" , show_path,:method => "get" %>
+</div>
+
+<div class="border-2 bg-blue-400 hover:bg-blue-600 p-2 mx-2 rounded-lg ">
 <%= button_to "delete", delete_path(id=@item.id), :method => "delete" %>
+</div>
+
+</div>

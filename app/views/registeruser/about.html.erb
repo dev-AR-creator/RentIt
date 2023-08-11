@@ -1,21 +1,72 @@
+
+
+
+
+
+
+<div class="border-2 flex flex-row justify-center p-4 w-screen h-screen bg-[url(https://wallpapers.com/images/hd/minimalist-blue-e0q5nh2rivmv9eio.jpg)] ">
+
+
+<div class="border-2 shadow-lg rounded-lg p-8 m-4 bg-white basis-1/2 ">
+<p class="text-4xl font-mono font-extrabold text-black "> Enter Your details below</p>
+
 <%=form_with url: profile_path, method: :post  do |form|  %>
-
+<div class="flex flex-col justify-between gap-4 ">
     <div class="field">
-    <%=form.label :location%>
-    <%=form.text_field :location %>
+    <label for="profile_Address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Address</label>
+    <input type="text" name="profile[Address]" id="profile_Address" class="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Johndoe@gmail.com" required>
 
     </div>
-
     <div class="field">
-    <%=form.label :about%>
-    <%=form.text_field :about%>
-    
+    <label for="profile_about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+    <textarea id="profile_about" name="profile[about]" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
     </div>
 
-    
+    <div>
+    <label for="profile_location" class="block mb-2 text-xl font-medium text-gray-900">Select the region of TOkyo</label>
+    <select id="profile_location"  name="profile[location]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" required>
+    <option selected>Choose area in Tokyo</option>
+    <option value="Imperial Palace Area">Imperial Palace Area</option>
+    <option value="Ginza">Ginza</option>
+    <option value="Tsukiji">Tsukiji</option>
+    <option value="Shinjuku">Shinjuku</option>
+    </select>
+</div>
 
-    <div class="actions">
+<div class="field">
+  <%=form.label :profilepic%>
+  <%=form.file_field :profilepic%>
+</div>
+
+<div>
+        <label for="profile_phone" class="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
+        <input type="tel" id="profile_phone" name="profile[phone]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+    </div>
+
+ <div><label for="profile_dateofbith" class="block mb-2 text-sm font-medium text-gray-900">Enter Date of birth</label>
+  <input type="date" name="profile[dateofbirth]" id="profile_dateofbirth" class="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+  
+  </div>
+
+<div>
+<label for="profile_gender" class="block mb-2 text-sm font-medium text-gray-900">Enter location</label>
+<select id="profile_gender" name="profile[gender]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+  <option selected>Choose a country</option>
+  <option value="Male">Male</option>
+  <option value="Female">female</option>
+
+  </div>
+
+ 
+
+<div class="border-2 bg-blue-400 hover:bg-blue-600"> 
+    <div class=" action" >
         <%= form.submit %>
       </div>
+</div>
 
+
+</div>
+</div>
+</div>
 <%end%>

@@ -1,9 +1,93 @@
 
+<div class="bg-white">
+  <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%=@stuff.name %></h2>
+      <p class="mt-4 text-gray-500"><%= @stuff.details %></p>
 
-    <div><%= @stuff.name %></div>
-    <%= button_to "order", request_path(id=@stuff.id), :method => "patch" %>
+      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Location</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @stuff.location%></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Price</dt>
+          <dd class="mt-2 text-sm text-gray-500">$ <%= @stuff.price %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Condition</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @stuff.condition %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Rental duration</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @stuff.duration %></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Phone</dt>
+          <dd class="mt-2 text-sm text-gray-500"><%= @user.profile.phone%></dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900"></dt>
+          <dd class="mt-2 text-sm text-gray-500">Made from natural materials. Grain and color vary with each item.</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="">
+        <% if @stuff.itemphoto.attached? %>
+         <%= image_tag @stuff.itemphoto %>
+        <% end %>
+     
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="flex flex-row justify-between gap-2 p-4  w-screen">
+
+
     
-    <%= link_to "back" , dash_path%>
+    <div
+  class="flex flex-col basis-1/2 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row">
+  <div
+    class="h-96 w-full rounded-t-lg object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
+     ><% if @user.profile.profilepic.attached? %>
+       <%= image_tag @user.profile.profilepic %>
+       <%else %>
+        <%= image_tag '/assets/images/pit.jpg' %>
+       <% end %> </div>
+  <div class="flex flex-col justify-start p-6">
+    <h5
+      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+      <%= @user.name%>
+    </h5>
+    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+      <%= @user.profile.about%>
+    </p>
+    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+      <%= @user.profile.phone%>
+    </p>
+    <p class="text-xs text-neutral-500 dark:text-neutral-300">
+      <%= @user.profile.Address%>
+    </p>
+  </div>
+</div>
+
+<div class="flex flex-row justify-evenly text-xl  content-end  pt-20 gap-5 mr-8"> 
+<div class=" rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-26 px-6 ">
+    <%= button_to "order", request_path(id=@stuff.id), :method => "patch" %>
+    </div>
+    <div class="rounded-md bg-lime-500 hover:bg-lime-600 p-2 h-26 px-6">
+    <%= button_to "back" , dash_path , :method => "get" %>
+</div>
+</div>
+    </div>
 
 
 

@@ -9,30 +9,33 @@ class RegisteruserController < ApplicationController
         user.email=params[:email]
         user.pass=params[:pass]
         user.save
-        
-
         redirect_to(form_path(id: user.id))
-
     end
+
+
     def About
     end
 
     def profile
-        
-        @user.build_profile()
-        @user.profile.location=params[:location]
-        @user.profile.about=params[:about]
-        @user.profile.save
-        redirect_to(home_path)
-        
-        
+        @user.create_profile(pro_params)
+        redirect_to(home_path)  
     end
 
 
 private
 
-def set_user
-   @user=User.find(params[:id]) 
-end
+    def pro_params
+        @hash=params.require(:profile).permit(:location,:about,:items,:gender,:phone,:Address,:dateofbirth)
+        @hashall=params.require(:profilepic)
+        @hash["profilepic"]=@hashall
+        return @hash
+
+        return @hash
+    end
+
+    def set_user
+        #temp=params.require(:profile).permit(:id)
+        @user=User.find(params[:id]) 
+    end
 
 end

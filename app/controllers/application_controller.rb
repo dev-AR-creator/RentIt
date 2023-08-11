@@ -1,3 +1,5 @@
+
+
 class ApplicationController < ActionController::Base
 helper_method :current_user,:logged_in
 
@@ -6,18 +8,22 @@ def current_user
     @current_user ||=User.find_by(id: session[:user_id])
 end
 
+
 def authenticate
     logged_in? || access_denied
 end
+
 
 def logged_in?
     current_user.present?
 end
 
+
 def access_denied
     redirect_to(login_path,notice:"Please log in")
     false
 end
+
 
 
 end

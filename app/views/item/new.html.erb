@@ -1,49 +1,83 @@
+
+<div class="flex flex-row  justify-center h-screen w-screen bg-gradient-to-br from-cyan-400 to-purple-800">
+
+
+<div class="basis-2/4 rounded-2xl bg-white m-7 p-16 shadow-xl  gap-2 flex flex-col justify-between   ">
+
+
+    <p class=" text-slate-950 font-bold font-mono text-3xl">Enter the details of the item</p>
+
+ 
+
 <%=form_with url: newitem_path, method: :post  do |form|  %>
-
-    <div class="field">
-    <%=form.label :name%>
-    <%=form.text_field :name %>
-
-    </div>
-
-    <div class="field">
-    <%=form.label :location%>
-    <%=form.text_field :location%>
-    
-    </div>
-
-    <div class="field">
-    <%=form.label :price%>
-    <%=form.number_field :price%>
-    
-    </div>
-    <div class="field">
-    <%=form.label :condition%>
-    <%=form.number_field :condition %>
-    
-    </div>
-    <div class="field">
-    <%=form.label :duration%>
-    <%=form.month_field :duration%>
-    
-    </div>
-
-    <div class="field">
-    <%=form.label :details%>
-    <%=form.text_area :details%>
-    
-    </div>
+ 
+<div class=" flex flex-col justify-between gap-4 ">
+<div class="mb-6">
+    <label for="item_name" class="block mb-2 text-xl font-medium text-gray-900">Name of Item</label>
+    <input type="text" id="item_name" name="item[name]" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 />
+ </div>
 
 
-    
 
-    <div class="actions">
+<div class="">
+    <label for="item_details" class="block mb-2 text-xl font-medium text-gray-900 ">Description of Item</label>
+    <textarea id="item_details"  name="item[details]" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your thoughts here..."></textarea>
+</div>
+
+
+
+<div>
+    <label for="item_location" class="block mb-2 text-xl font-medium text-gray-900">Select the region of TOkyo</label>
+    <select id="item_location"  name="item[location]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+    <option selected>Choose area in Tokyo</option>
+    <option value="Imperial Palace Area">Imperial Palace Area</option>
+    <option value="Ginza">Ginza</option>
+    <option value="Tsukiji">Tsukiji</option>
+    <option value="Shinjuku">Shinjuku</option>
+    </select>
+</div>
+
+
+
+<div>
+    <label for="default-range" class="block mb-2 text-xl font-medium text-gray-900 ">What is the condition of your Item</label>
+    <input id="default-range" name="item[condition]" type="range" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ">
+
+</div>
+
+
+<div>
+    <label for="item_price" class="block mb-2 text-xl font-medium text-gray-900 " >Enter the price $</label>
+    <input  id="item_price" type="number" name="item[price]" min="0" max="1000" step="any" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500" />
+</div>
+
+
+
+<div>
+    <label for="item_duration" class="block mb-2 text-xl font-medium text-gray-900 " >Enter the duration</label>
+    <input  id="item_duration" type="number" name="item[duration]" min="0" max="1000" step="any" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500" />
+</div>
+
+
+
+
+<div class="field">
+<%= form.label :itemphoto%>
+<%=form.file_field :itemphoto%>
+
+</div>
+
+
+
+
+    <div class="actions border-2 h-12 rounded-lg bg-sky-400 hover:bg-sky-700 ">
         <%= form.submit %>
       </div>
-
+</div>
 <%end%>
+   
 
-
-
+</div>
+</div>
 
 

@@ -1,11 +1,94 @@
 
-<h1> cards</h1>
 
-<% @cards.each do |cards| %>
+<div class=" w-screen h-screen flex flex-row ">
 
 
-  <div> <%= cards.name %> </div>
-  <%= link_to "view" ,itempage_path(id=cards.id) %>
- 
 
-  <%end%>
+
+
+<div class="flex flex-col h-auto min-h-screen  basis-1/4 justify-between p-2">
+    <div>
+<div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+  <div class="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+    <% if @user.profile.profilepic.attached? %>
+   <%= image_tag @user.profile.profilepic %>
+   <% end %>
+
+  </div>
+  <div class="p-6 text-center">
+    <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+      <%= @user.name%>
+    </h4>
+   
+  </div>
+  <div class="flex justify-center gap-7 p-6 pt-2">
+    <a
+      href="#facebook"
+      class="block bg-gradient-to-tr from-blue-600 to-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
+    >
+      <i class="fab fa-facebook" aria-hidden="true"></i>
+    </a>
+    <a
+      href="#twitter"
+      class="block bg-gradient-to-tr from-light-blue-600 to-light-blue-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
+    >
+      <i class="fab fa-twitter" aria-hidden="true"></i>
+    </a>
+    <a
+      href="#instagram"
+      class="block bg-gradient-to-tr from-purple-600 to-purple-400 bg-clip-text font-sans text-xl font-normal leading-relaxed text-transparent antialiased"
+    >
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+<p class="text-lg m-2 p-2 text-start font-bold font-sans truncate"><%= @user.profile.about %></p>
+</div>
+<div class="flex flex-col gap-4 ">
+<div class="rounded-lg bg-blue-400 hover:bg-blue-500 p-4 mx-4"><%= link_to "New Item" , new_path %></div>
+<div class=" rounded-lg  bg-blue-400 hover:bg-blue-500 p-4 mx-4"><%= link_to "Edit profile",root_path%></div>
+<div class=" rounded-lg  bg-blue-400 hover:bg-blue-500 p-4 mx-4"><%= link_to "rented",rented_path%></div>
+</div>
+
+</div>
+
+
+
+
+<div class="bg-white  h-screen w-screen">
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 h-full">
+    <h2 class="sr-only">Products</h2>
+
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      
+
+      
+                <% @cards.each do |rent|  %>
+                <div >
+                    <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <% if rent.itemphoto.attached? %>
+                        <%= image_tag rent.itemphoto %>
+                        <% end %>
+                    </div>
+                <h3 class="mt-4 text-sm text-gray-700"><%= rent.name %></h3>
+                <p class="mt-1 text-lg font-medium text-gray-900"><% if rent.sold %>
+                                                    <div>SOLD</div>
+                                                    <% elsif rent.approval == true %>
+                                                        <div>Pending</div>
+                                                    <% else %>
+                                                        <div>NOT rented</div>
+                                                                        <%end%></p>
+
+                <%= link_to "view" , itempage_path(id=rent.id)%>
+                </div>
+                <%end%>
+
+      <!-- More products... -->
+    </div>
+  </div></div>
+
+
+
+
+
+  </div>
