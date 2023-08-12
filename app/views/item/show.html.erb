@@ -9,7 +9,7 @@
 <div class="flex flex-col  w-1/4 justify-between p-2">
     <div>
 <div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-  <div class="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
+  <div class="relative mx-4 mt-4 h-48 bg-clip-border text-gray-700 shadow-lg aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 ">
     <% if @user.profile.profilepic.attached? %>
    <%= image_tag @user.profile.profilepic %>
    <% end %>
@@ -23,7 +23,7 @@
   </div>
   
 </div>
-<p class="text-lg m-2 p-2 text-start font-bold font-sans "><%= @user.profile.about %></p>
+<p class="text-lg m-2 p-2 text-start font-medium font-sans "><%= @user.profile.about %></p>
 </div>
 <div class="flex flex-col gap-4 ">
 <div class="rounded-lg bg-blue-400 hover:bg-blue-500 p-4 mx-4"><%= link_to "New Item" , new_path %></div>

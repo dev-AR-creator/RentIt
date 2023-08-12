@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: beginning_rails_7_development

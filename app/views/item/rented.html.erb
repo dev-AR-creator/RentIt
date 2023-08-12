@@ -5,10 +5,10 @@
     <h2 class="text-2xl font-bold tracking-tight text-gray-900">You have also purchased</h2>
 
     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <%= @rented.each do |have| %>
+        <% @rented.each do |have| %>
 
       <div class="group relative">
-        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
             <% if have.itemphoto.attached?%>
             <%= image_tag have.itemphoto %>
             <%end %>
@@ -24,11 +24,14 @@
             <p class="mt-1 text-sm text-gray-500"><%= have.details%></p>
           </div>
           <p class="text-sm font-medium text-gray-900"><%= have.price%></p>
+            <%= button_to "returned", delete_path(id=have.id),:method => 'delete' %>
         </div>
+       
       </div>
 
-<%end%>
+    <%end %>
     </div>
+    
   </div>
 </div>
 
